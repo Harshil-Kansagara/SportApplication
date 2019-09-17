@@ -1,0 +1,45 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+  <div class="card-body">
+    <form #form="ngForm" autocomplete="off" (submit)="save()">
+      <div class="row" style="margin-left:20px">
+        <div class="form-group">
+          <label class="control-label">Date:</label>
+          <input class="datepicker form-control" name="date" type="date" data-date-format="dd-mm-yyyy"
+                 required #date="ngModel" [(ngModel)]="testList.Date"
+                 [ngClass]="{'is-invalid': (date.touched || date.dirty) && !date.valid}" />
+          <span class="invalid-feedback">
+            <span *ngIf="date.errors?.required">
+              Date is required
+            </span>
+          </span>
+        </div>
+        <!--<mat-form-field appearance="outline">
+          <mat-label>Date</mat-label>
+          <input matInput [matDatepicker]="picker" name="Date" [(ngModel)]="testList.Date" #date="ngModel" [ngClass]="{'is-invalid': (date.touched || date.dirty) && !date.valid }" required readonly>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker touchUi #picker disabled="false"></mat-datepicker>
+          <mat-error *ngIf="date.errors?.required">Choose a Date</mat-error>
+        </mat-form-field>-->
+      </div>
+      <div class="row" style="margin-left:20px;margin-top:10px">
+        <mat-form-field appearance="outline">
+          <mat-select placeholder="Select" name="TestType" #TestType="ngModel" [(ngModel)]="testList.TestType"
+                      [ngClass]="{'is-invalid': (TestType.touched || TestType.dirty) && !TestType.valid }" required>
+            <mat-option value="{{each}}" *ngFor="let each of testType">{{each}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="TestType.errors?.required">Test Name is Required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row" style="margin-left:20px;margin-top:10px">
+        <button mat-raised-button class="btn btn-outline-primary mr-3"
+                style="width:80px" (click)="back()">
+          <i class="fa fa-chevron-left"></i> Back
+        </button>
+        <button mat-raised-button class="btn btn-primary" [disabled]="form.invalid">Create</button>
+      </div>
+    </form>
+  </div>
+</div>

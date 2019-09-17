@@ -1,0 +1,77 @@
+﻿@model SportsApplication.Data.Entity.AthleteDetailsModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Detail of Yours</h4>
+
+<div>
+    @if (Model.athleteByTests.Count != 0)
+    {
+    <div class="row">
+        <div class="col"><b>Coach Name</b></div>
+        <div class="col"><b>Date</b></div>
+        <div class="col"><b>Test Type</b></div>
+        <div class="col"><b>Distance</b></div>
+        <div class="col"><b>Performance Ranking</b></div>
+    </div>
+    <hr/>
+        @foreach (var item in Model.athleteByTests)
+        {
+            @foreach (var item1 in Model.testLists)
+            {
+                @foreach (var item2 in Model.coach)
+                {
+
+                    @if (item.test_id == item1.id && item2.Id == item1.coachId)
+                    {
+                        <div class="row">
+                            <div class="col">
+                                @item2.UserName
+                            </div>
+                            <div class="col">
+                                @item1.date.ToString("dd/MM/yyyy")
+                            </div>
+                            <div class="col">
+                                @item1.test_type
+                            </div>
+                            <div class="col">
+                                @item.athlete_distance
+                            </div>
+                            @if (item.athlete_distance > 3500)
+                            {
+                                <div class="col">
+                                    Very Good
+                                </div>
+                            }
+                            else if (item.athlete_distance > 2000 && item.athlete_distance <= 3500)
+                            {
+                                <div class="col">
+                                    Good
+                                </div>
+                            }
+                            else if (item.athlete_distance > 1000 && item.athlete_distance <= 2000)
+                            {
+                                <div class="col">
+                                    Average
+                                </div>
+                            }
+                            else if (item.athlete_distance <= 1000)
+                            {
+                                <div class="col">
+                                    Below Average
+                                </div>
+                            }
+                        </div>
+                    }
+                }
+            }
+        }
+    }
+    else
+    {
+        <h5>No Data Found</h5>
+    }
+</div>
+

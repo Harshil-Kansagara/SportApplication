@@ -1,0 +1,72 @@
+﻿@model IEnumerable<SportsApplication.Data.Entity.AllAthleteList>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+
+</head>
+<body>
+    <div class="text-center">
+        <h3>All Athletes List</h3>
+        <hr/>
+        <div class="row" style="margin-top:30px">
+            <div class="col"><b>Athlete Name</b></div>
+            <div class="col"></div>
+        </div>
+        <hr />
+        <ol>
+            @foreach (var item in Model)
+            {
+            <li>
+                <div class="row">
+                    <div class="col">
+                        @Html.DisplayFor(modelItem => item.athlete_name)
+                    </div>
+                    <div class="col"><a asp-action="Delete" asp-route-id="@item.id">Delete</a></div>
+                </div>
+                <hr />
+            </li>
+            }
+            </ol>
+            <div>
+                <a asp-action="Create" class="btn btn-primary">Create New Athlete</a>
+            </div>
+            <div>
+                <a style="margin-top:30px" value="submit" asp-controller="TestLists">Back To Test List</a>
+            </div>
+</div>
+    
+</body>
+</html>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.athlete_name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.athlete_name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@

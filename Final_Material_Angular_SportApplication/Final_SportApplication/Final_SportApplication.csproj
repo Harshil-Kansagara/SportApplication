@@ -1,0 +1,191 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <UserSecretsId>aspnet-Final_SportApplication-EB332797-79A6-4635-90FD-1B2B30D3AAEB</UserSecretsId>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="%2a%2a\**" />
+    <Content Remove="%2a%2a\**" />
+    <EmbeddedResource Remove="%2a%2a\**" />
+    <None Remove="%2a%2a\**" />
+    <TypeScriptCompile Remove="%2a%2a\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="%2a%2a/%2a.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="%2a%2a\%2a.config" />
+    <Content Remove="%2a%2a\%2a.cshtml" />
+    <Content Remove="%2a%2a\%2a.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="%2a%2a/%2a.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="%2a%2a/%2a" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Remove="%2a%2a\%2a.ts" />
+    <TypeScriptCompile Remove="%2a%2a\%2a.tsx" />
+    <TypeScriptCompile Remove="SportAngular\src\app\Account\Login\login.component.ts" />
+    <TypeScriptCompile Remove="SportAngular\src\app\Account\Model\register.ts" />
+    <TypeScriptCompile Remove="SportAngular\src\app\Account\Register\register.component.ts" />
+    <TypeScriptCompile Remove="SportAngular\src\app\Athlete\Model\AthleteDetail.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AllAthletesController.cs" />
+    <Compile Include="Controllers\AthleteByTestController.cs" />
+    <Compile Include="Controllers\AthleteDetailsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TestListsController.cs" />
+    <Compile Include="Data\DataDbContext.cs" />
+    <Compile Include="Data\ISportService.cs" />
+    <Compile Include="Data\IUnitOfWork.cs" />
+    <Compile Include="Data\SportService.cs" />
+    <Compile Include="Data\UnitOfWork.cs" />
+    <Compile Include="Migrations\20190914071309_InitialCreate.cs" />
+    <Compile Include="Migrations\20190914071309_InitialCreate.designer.cs" />
+    <Compile Include="Migrations\20190916041359_Initial.cs" />
+    <Compile Include="Migrations\20190916041359_Initial.designer.cs" />
+    <Compile Include="Migrations\DataDbContextModelSnapshot.cs" />
+    <Compile Include="Models\AddAthleteModel.cs" />
+    <Compile Include="Models\ApplicationSettingModel.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\AthleteByTestModel.cs" />
+    <Compile Include="Models\AthleteDetailsModel.cs" />
+    <Compile Include="Models\AthleteListModel.cs" />
+    <Compile Include="Models\EditAthleteDataModel.cs" />
+    <Compile Include="Models\ErrorViewModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\TestDetailModel.cs" />
+    <Compile Include="Models\TestListModel.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="appsettings.Development.json" />
+    <Content Include="appsettings.json" />
+    <Content Include="Areas\Identity\Pages\_ViewStart.cshtml" />
+    <Content Include="Properties\launchSettings.json" />
+    <Content Include="SportAngular\angular.json" />
+    <Content Include="SportAngular\e2e\tsconfig.json" />
+    <Content Include="SportAngular\package-lock.json" />
+    <Content Include="SportAngular\package.json" />
+    <Content Include="SportAngular\tsconfig.app.json" />
+    <Content Include="SportAngular\tsconfig.json" />
+    <Content Include="SportAngular\tsconfig.spec.json" />
+    <Content Include="SportAngular\tslint.json" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Privacy.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_CookieConsentPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <Content Include="Views\_ViewImports.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="3.6.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="SportAngular\.editorconfig" />
+    <None Include="SportAngular\.gitignore" />
+    <None Include="SportAngular\browserslist" />
+    <None Include="SportAngular\e2e\protractor.conf.js" />
+    <None Include="SportAngular\e2e\src\app.e2e-spec.ts" />
+    <None Include="SportAngular\e2e\src\app.po.ts" />
+    <None Include="SportAngular\karma.conf.js" />
+    <None Include="SportAngular\README.md" />
+    <None Include="SportAngular\src\app\Account\Login\login.component.html" />
+    <None Include="SportAngular\src\app\Account\Login\login.component.ts" />
+    <None Include="SportAngular\src\app\Account\Model\login.ts" />
+    <None Include="SportAngular\src\app\Account\Register\register.component.css" />
+    <None Include="SportAngular\src\app\Account\Register\register.component.html" />
+    <None Include="SportAngular\src\app\Account\Register\register.component.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Include="SportAngular\src\app\Account\Model\register.ts" />
+    <None Include="SportAngular\src\app\AllAthletes\allAthletes.module.ts" />
+    <None Include="SportAngular\src\app\AllAthletes\index\addAthlete-dialog.component.html" />
+    <None Include="SportAngular\src\app\AllAthletes\index\index-allAthletes.component.css" />
+    <None Include="SportAngular\src\app\AllAthletes\index\index-allAthletes.component.html" />
+    <None Include="SportAngular\src\app\AllAthletes\index\index-allAthletes.component.ts" />
+    <None Include="SportAngular\src\app\AllAthletes\Model\Athletes.ts" />
+    <None Include="SportAngular\src\app\app-routing.module.ts" />
+    <None Include="SportAngular\src\app\app.component.css" />
+    <None Include="SportAngular\src\app\app.component.html" />
+    <None Include="SportAngular\src\app\app.component.spec.ts" />
+    <None Include="SportAngular\src\app\app.component.ts" />
+    <None Include="SportAngular\src\app\app.module.ts" />
+    <None Include="SportAngular\src\app\AthleteByTest\athleteByTest.module.ts" />
+    <None Include="SportAngular\src\app\AthleteByTest\create\create-athleteByTest.component.html" />
+    <None Include="SportAngular\src\app\AthleteByTest\create\create-athleteByTest.component.ts" />
+    <None Include="SportAngular\src\app\AthleteByTest\edit\edit-athleteByTest.component.html" />
+    <None Include="SportAngular\src\app\AthleteByTest\edit\edit-athleteByTest.component.ts" />
+    <None Include="SportAngular\src\app\AthleteByTest\index\index-athleteByTest.component.css" />
+    <None Include="SportAngular\src\app\AthleteByTest\index\index-athleteByTest.component.html" />
+    <None Include="SportAngular\src\app\AthleteByTest\index\index-athleteByTest.component.ts" />
+    <None Include="SportAngular\src\app\AthleteByTest\Model\AthleteData.ts" />
+    <None Include="SportAngular\src\app\AthleteByTest\Model\TestDetail.ts" />
+    <None Include="SportAngular\src\app\Athlete\index-athlete.component.css" />
+    <None Include="SportAngular\src\app\Athlete\index-athlete.component.html" />
+    <None Include="SportAngular\src\app\Athlete\index-athlete.component.ts" />
+    <None Include="SportAngular\src\app\Athlete\Model\AthleteDetail.ts" />
+    <None Include="SportAngular\src\app\Auth\auth.guard.ts" />
+    <None Include="SportAngular\src\app\Auth\auth.interceptor.ts" />
+    <None Include="SportAngular\src\app\Coach\coach.module.ts" />
+    <None Include="SportAngular\src\app\Coach\TestList\create\create-testList.component.html" />
+    <None Include="SportAngular\src\app\Coach\TestList\create\create-testList.component.ts" />
+    <None Include="SportAngular\src\app\Coach\TestList\create\format-datepicker.ts" />
+    <None Include="SportAngular\src\app\Coach\TestList\index\index-testList.component.css" />
+    <None Include="SportAngular\src\app\Coach\TestList\index\index-testList.component.html" />
+    <None Include="SportAngular\src\app\Coach\TestList\index\index-testList.component.ts" />
+    <None Include="SportAngular\src\app\Coach\TestList\Model\TestList.ts" />
+    <None Include="SportAngular\src\app\service\allAthletes.service.ts" />
+    <None Include="SportAngular\src\app\service\athleteByTest.service.ts" />
+    <None Include="SportAngular\src\app\service\athleteData.service.ts" />
+    <None Include="SportAngular\src\app\service\testList.service.ts" />
+    <None Include="SportAngular\src\app\page-not-found.component.ts" />
+    <None Include="SportAngular\src\app\service\account.service.ts" />
+    <None Include="SportAngular\src\app\service\debug.service.ts" />
+    <None Include="SportAngular\src\app\Shared\confirm-equal-validator.directive.ts" />
+    <None Include="SportAngular\src\assets\.gitkeep" />
+    <None Include="SportAngular\src\environments\environment.prod.ts" />
+    <None Include="SportAngular\src\environments\environment.ts" />
+    <None Include="SportAngular\src\favicon.ico" />
+    <None Include="SportAngular\src\index.html" />
+    <None Include="SportAngular\src\main.ts" />
+    <None Include="SportAngular\src\polyfills.ts" />
+    <None Include="SportAngular\src\styles.css" />
+    <None Include="SportAngular\src\test.ts" />
+  </ItemGroup>
+
+</Project>

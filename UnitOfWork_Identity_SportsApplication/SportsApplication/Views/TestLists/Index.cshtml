@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SportsApplication.Data.Entity.TestList>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+
+</head>
+<body>
+    <div class="text-center">
+        <h3>Test List</h3>
+        <hr/>
+        <div class="row" style="margin-top:30px">
+            <div class="col"><b>Date</b></div>
+            <div class="col"><b>Number of Participants</b></div>
+            <div class="col"><b>Test Type</b></div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+        <hr />
+        @foreach (var item in Model)
+        {
+            <div class="row">
+                <div class="col">@Html.DisplayFor(modelItem => item.date)</div>
+                <div class="col">
+                    @Html.DisplayFor(modelItem => item.participant_num)
+                </div>
+                <div class="col">@Html.DisplayFor(modelItem => item.test_type)</div>
+                <div class="col"><a asp-action="Index" asp-controller="AthleteByTest" asp-route-id="@item.id">Details</a></div>
+                <div class="col"><a asp-action="Delete" asp-route-id="@item.id">Delete</a></div>
+            </div>
+            <hr />
+        }
+        <div>
+            <a asp-action="Create" style="margin-top:10px" class="btn btn-primary">Create New test</a>
+        </div>
+        <div>
+            <a style="margin-top:30px" value="submit" asp-controller="AllAthletes" class="btn btn-primary">View All Athlete</a>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+

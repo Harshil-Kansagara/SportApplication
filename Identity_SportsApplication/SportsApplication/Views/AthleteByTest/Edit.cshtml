@@ -1,0 +1,45 @@
+﻿@model SportsApplication.Data.Entity.EditAthleteDataModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Edit Athlete Record</h3>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div class="form-group">
+                <input type="hidden" asp-for="@Model.TestId" />
+                <input type="hidden" asp-for="@Model.id" />
+                <label class="control-label"><b>Athlete Name:</b></label>
+                <select asp-for="@Model.athleteId">
+                    <option value="-1" selected disabled>--select--</option>
+                    @foreach (var athlete in Model.athleteList)
+                    {
+                        <option value="@athlete.id">@athlete.athlete_name</option>
+                    }
+                </select>
+                <span asp-validation-for="@Model.athleteId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Distance Of Athlete</label>
+                <input asp-for="distance" class="form-control" />
+                <span asp-validation-for="distance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Delete Athlete Data" asp-action="Delete" asp-route-id="@Model.id" asp-route-testId="@Model.TestId" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-route-id="@Model.TestId">Back to List</a>
+</div>
+
+

@@ -1,0 +1,51 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+  <div class="card-body">
+    <form #form='ngForm' autocomplete="off">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label"><b>Athlete Name:</b></label>
+            <select class="custom-select form-control" name="athlete_id" #athlete_id="ngModel" [(ngModel)]="formModel.athlete_id"
+                    [ngClass]="{'is-invalid': (athlete_id.touched || athlete_id.dirty) && !athlete_id.valid }" required>
+              <option value="{{each.id}}" *ngFor="let each of addAthleteModel.athleteList">{{each.athlete_name}}</option>
+            </select>
+            <span class="invalid-feedback">
+              <span *ngIf="athlete_id.errors?.required">
+                Athlete Name is required
+              </span>
+            </span>
+          </div>
+          <div class="form-group">
+            <label class="control-label"><b>Distance</b></label>
+            <input class="form-control" name="distance" required #distance="ngModel"
+                   [(ngModel)]="formModel.distance"
+                   [ngClass]="{'is-invalid': (distance.touched || distance.dirty) && !distance.valid}" />
+            <span class="invalid-feedback">
+              <span *ngIf="distance.errors?.required">
+                Distance is required
+              </span>
+            </span>
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="hidden" name="testId" #testId="ngModel" [(ngModel)]="formModel.testId"/>
+          </div>
+
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <button class="btn btn-outline-primary mr-3"
+                  style="width:80px" (click)="onBack()">
+            <i class="fa fa-chevron-left"></i> Back
+          </button>
+          <button class="btn btn-primary" [disabled]="form.invalid" (click)="onSubmit()">
+            Add
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

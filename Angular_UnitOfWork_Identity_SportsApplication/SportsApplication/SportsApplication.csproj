@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <TypeScriptToolsVersion>3.5</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="sportsAngular\src\app\AllAthletes\allAthletes.module.ts" />
+    <None Remove="sportsAngular\src\app\AllAthletes\create\create-allAthletes.component.ts" />
+    <None Remove="sportsAngular\src\app\AllAthletes\index\index-allAthletes.component.ts" />
+    <None Remove="sportsAngular\src\app\AthleteByTest\create\create-athleteByTest.component.ts" />
+    <None Remove="sportsAngular\src\app\AthleteByTest\edit\edit-athleteByTest.component.ts" />
+    <None Remove="sportsAngular\src\app\Athlete\index-athlete.component.ts" />
+    <None Remove="sportsAngular\src\app\Auth\auth.guard.ts" />
+    <None Remove="sportsAngular\src\app\Auth\auth.interceptor.ts" />
+    <None Remove="sportsAngular\src\app\Coach\coach.module.ts" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <TypeScriptCompile Include="sportsAngular\src\app\AllAthletes\allAthletes.module.ts" />
+    <TypeScriptCompile Include="sportsAngular\src\app\AllAthletes\create\create-allAthletes.component.ts" />
+    <TypeScriptCompile Include="sportsAngular\src\app\AllAthletes\index\index-allAthletes.component.ts" />
+    <TypeScriptCompile Include="sportsAngular\src\app\AthleteByTest\create\create-athleteByTest.component.ts" />
+    <TypeScriptCompile Include="sportsAngular\src\app\AthleteByTest\edit\edit-athleteByTest.component.ts" />
+    <TypeScriptCompile Include="sportsAngular\src\app\Athlete\index-athlete.component.ts" />
+    <TypeScriptCompile Include="sportsAngular\src\app\Auth\auth.guard.ts" />
+    <TypeScriptCompile Include="sportsAngular\src\app\Auth\auth.interceptor.ts" />
+    <TypeScriptCompile Include="sportsAngular\src\app\Coach\coach.module.ts" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+  <div class="card-body">
+    <form #form='ngForm' autocomplete="off" (submit)="submit()">
+      <div class="row" style="margin-left:20px">
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput name="Name" [(ngModel)]="login.Name" #Name="ngModel" [ngClass]="{'is-invalid': (Name.touched || Name.dirty) && !Name.valid }" required>
+          <mat-error *ngIf="Name.errors?.required">"Name is required"</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row" style="margin-left:20px;margin-top:10px">
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" name="Password" [(ngModel)]="login.Password" #Password="ngModel" [ngClass]="{'is-invalid': (Password.touched || Password.dirty) && !Password.valid }" required>
+          <mat-error *ngIf="Password.errors?.required">"Password is required"</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row" style="margin-left:20px;margin-top:10px">
+        <mat-checkbox #RememberMe="ngModel" name="RememberMe" [(ngModel)]="login.RememberMe" value="">Remember Me</mat-checkbox>
+      </div>
+      <div class="row" style="margin-left:20px;margin-top:10px">
+        <button mat-raised-button class="btn btn-primary" [disabled]="form.invalid">Login</button>
+        <a style="margin-left:20px" value="submit" [routerLink]="['/register']">Don't have account?</a>
+      </div>
+    </form>
+  </div>
+</div>

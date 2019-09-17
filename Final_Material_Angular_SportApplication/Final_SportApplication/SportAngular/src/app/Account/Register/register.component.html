@@ -1,0 +1,52 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+  <div class="card-body">
+    <form #form='ngForm' autocomplete="off" (submit)="save()">
+      <div class="row" style="margin-left:20px">
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput name="Name" [(ngModel)]="register.Name" #Name="ngModel" [ngClass]="{'is-invalid': (Name.touched || Name.dirty) && !Name.valid }" required>
+          <mat-error *ngIf="Name.errors?.required">"Name is required"</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row" style="margin-left:20px;margin-top:10px">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput email name="Email" [(ngModel)]="register.Email" #Email="ngModel" [ngClass]="{'is-invalid': (Email.touched || Email.dirty) && !Email.valid }" required>
+          <mat-error *ngIf="Email.errors?.required">"Email is required"</mat-error>
+          <mat-error *ngIf="Email.errors?.email">"Provide valid Email"</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row" style="margin-left:20px;margin-top:10px">
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" name="Password" [(ngModel)]="register.Password" #Password="ngModel" [ngClass]="{'is-invalid': (Password.touched || Password.dirty) && !Password.valid }" required>
+          <mat-error *ngIf="Password.errors?.required">"Password is required"</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row" style="margin-left:20px;margin-top:10px">
+        <mat-form-field appearance="outline">
+          <mat-label>Confirm Password</mat-label>
+          <input matInput type="password" appConfirmEqualValidator="Password" name="Confirm Password" [(ngModel)]="register.ConfirmPassword" #ConfirmPassword="ngModel" [ngClass]="{'is-invalid': (ConfirmPassword.touched || ConfirmPassword.dirty) && !ConfirmPassword.valid }" required>
+          <mat-error *ngIf="ConfirmPassword.errors?.required">"Confirm Password is required"</mat-error>
+          <mat-error *ngIf="ConfirmPassword.errors?.notEqual">Confirm Password does not match</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row" style="margin-left:20px;margin-top:10px">
+        <mat-form-field appearance="outline">
+          <mat-select placeholder="Select" name="RoleId" #RoleId="ngModel" [(ngModel)]="register.RoleId"
+                      [ngClass]="{'is-invalid': (RoleId.touched || RoleId.dirty) && !RoleId.valid }" required>
+            <mat-option value="{{each.id}}" *ngFor="let each of roleId">{{each.name}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="RoleId.errors?.required">Role Name is Required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row" style="margin-top:20px">
+        <button mat-raised-button class="btn btn-primary" [disabled]="form.invalid">Register</button>
+        <a style="margin-left:20px" value="submit" [routerLink]="['/login']">Already have account?</a>
+      </div>
+  </form>
+</div>
+</div>

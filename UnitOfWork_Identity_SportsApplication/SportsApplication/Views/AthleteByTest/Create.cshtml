@@ -1,0 +1,47 @@
+﻿@model SportsApplication.Data.Entity.AddAthleteModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Create Athlete Record</h3>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label class="control-label"><b>Athlete Name:</b></label>
+
+                <select asp-for="athlete_id">
+                    <option value="-1" selected disabled>--select--</option>
+                    @foreach (var athlete in Model.athleteList)
+                    {
+                        <option value="@athlete.id">@athlete.athlete_name</option>
+                    }
+                </select>
+                <span asp-validation-for="athlete_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label"><b>Distance</b></label>
+                <input asp-for="distance" class="form-control" />
+                <span asp-validation-for="distance" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="@Model.testId" />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@if (ViewBag.message != null)
+{
+    <div class="text-danger">@ViewBag.message</div>
+}
+<div>
+    <a asp-action="Index" asp-route-id="@Model.testId">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

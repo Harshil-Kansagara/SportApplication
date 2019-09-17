@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Controller_SelectedScaffolderID>ApiControllerEmptyScaffolder</Controller_SelectedScaffolderID>
+    <Controller_SelectedScaffolderCategoryPath>root/Controller</Controller_SelectedScaffolderCategoryPath>
+    <WebStackScaffolding_ControllerDialogWidth>600</WebStackScaffolding_ControllerDialogWidth>
+    <ShowAllFiles>true</ShowAllFiles>
+    <WebStackScaffolding_IsLayoutPageSelected>True</WebStackScaffolding_IsLayoutPageSelected>
+    <WebStackScaffolding_IsPartialViewSelected>False</WebStackScaffolding_IsPartialViewSelected>
+    <WebStackScaffolding_IsReferencingScriptLibrariesSelected>True</WebStackScaffolding_IsReferencingScriptLibrariesSelected>
+    <WebStackScaffolding_LayoutPageFile />
+    <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Update="SportAngular\src\app\Account\Login\login.component.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="SportAngular\src\app\Account\Model\login.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="SportAngular\src\app\Account\Model\register.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="SportAngular\src\app\AllAthletes\allAthletes.module.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="SportAngular\src\app\AllAthletes\index\index-allAthletes.component.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="SportAngular\src\app\AllAthletes\Model\Athletes.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="SportAngular\src\app\AthleteByTest\athleteByTest.module.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="SportAngular\src\app\AthleteByTest\create\create-athleteByTest.component.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="SportAngular\src\app\AthleteByTest\edit\edit-athleteByTest.component.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="SportAngular\src\app\AthleteByTest\index\index-athleteByTest.component.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="SportAngular\src\app\AthleteByTest\Model\AthleteData.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="SportAngular\src\app\AthleteByTest\Model\TestDetail.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="SportAngular\src\app\Athlete\index-athlete.component.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="SportAngular\src\app\Athlete\Model\AthleteDetail.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="SportAngular\src\app\Coach\coach.module.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="SportAngular\src\app\Coach\TestList\create\create-testList.component.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="SportAngular\src\app\Coach\TestList\create\format-datepicker.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="SportAngular\src\app\Coach\TestList\index\index-testList.component.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="SportAngular\src\app\Coach\TestList\Model\TestList.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="SportAngular\src\app\service\allAthletes.service.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="SportAngular\src\app\service\athleteByTest.service.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="SportAngular\src\app\service\athleteData.service.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="SportAngular\src\app\service\testList.service.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="SportAngular\src\app\service\account.service.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="SportAngular\src\app\service\debug.service.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="SportAngular\src\app\Shared\confirm-equal-validator.directive.ts">
+      <SubType>Code</SubType>
+    </None>
+  </ItemGroup>
+</Project>

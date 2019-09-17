@@ -1,0 +1,37 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+  <div class="card-body">
+    <div class="text-center">
+      <mat-form-field>
+        <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+    </div>
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z1">
+      <ng-container matColumnDef="CoachName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size:large; font-style:unset"> Coach Name </th>
+        <td mat-cell *matCellDef="let element">{{element.CoachName}}</td>
+      </ng-container>
+      <ng-container matColumnDef="Date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size:large; font-style:unset"> Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.Date}} </td>
+      </ng-container>
+      <ng-container matColumnDef="TestType">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size:large; font-style:unset"> Test Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.TestType}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Distance">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size:large; font-style:unset"> Distance </th>
+        <td mat-cell *matCellDef="let element"> {{element.Distance}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Ranking">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size:large; font-style:unset"> Ranking </th>
+        <td mat-cell *matCellDef="let element"> {{element.Ranking}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

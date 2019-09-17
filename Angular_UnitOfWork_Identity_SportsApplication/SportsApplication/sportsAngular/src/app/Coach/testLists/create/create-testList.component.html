@@ -1,0 +1,48 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-4">
+        <form #form='ngForm' class="mb-4" autocomplete="off" (submit)="onSubmit(form)">
+          <div class="form-group">
+            <label class="control-label">Date:</label>
+            <input class="datepicker form-control" name="date" type="date" data-date-format="dd-mm-yyyy"
+                   required #date="ngModel" [(ngModel)]="formModel.date"
+                   [ngClass]="{'is-invalid': (date.touched || date.dirty) && !date.valid}" />
+            <span class="invalid-feedback">
+              <span *ngIf="date.errors?.required">
+                Date is required
+              </span>
+            </span>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Test Type:</label>
+            <select class="custom-select form-control" name="test_type" #test_type="ngModel" [(ngModel)]="formModel.test_type"
+                    [ngClass]="{'is-invalid': (test_type.touched || test_type.dirty) && !test_type.valid }" required>
+              <option value="{{each}}" *ngFor="let each of testType">{{each}}</option>
+            </select>
+            <span class="invalid-feedback">
+              <span *ngIf="test_type.errors?.required">
+                Test Type is required
+              </span>
+            </span>
+          </div>
+            <div class="row mt-4">
+              <div class="col">
+                <button class="btn btn-outline-primary mr-3"
+                        style="width:80px" (click)="onBack()">
+                  <i class="fa fa-chevron-left"></i> Back
+                </button>
+                <button class="btn btn-primary"
+                        style="width:80px" [disabled]="form.invalid">
+                  Create
+                </button>
+              </div>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

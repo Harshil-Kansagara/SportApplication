@@ -1,0 +1,118 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+  <div class="card-body">
+    <div *ngIf="athleteDetails">
+      <div class="table-responsive text-center">
+        <table class="table mb-0">
+          <thead>
+            <tr>
+              <th> Coach Name </th>
+              <th> Date </th>
+              <th>Test Type</th>
+              <th>Distance</th>
+              <th>Performance Ranking</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor ="let item of athleteDetails.athleteByTests">
+              <ng-container *ngFor = "let item1 of athleteDetails.testLists">
+                <ng-container *ngFor="let item2 of athleteDetails.coach">
+                  <tr *ngIf="item.test_id == item1.id && item2.id == item1.coachId">
+                    <td>{{item2.userName}}</td>
+                    <td>{{item1.date | date: "dd-MM-yyyy"}}</td>
+                    <td>{{item1.test_type}}</td>
+                    <td>{{item.athlete_distance}}</td>
+                    <td *ngIf="item.athlete_distance > 3500">Very Good</td>
+                    <td *ngIf="item.athlete_distance > 2000 && item.athlete_distance <= 3500">Good</td>
+                    <td *ngIf="item.athlete_distance > 1000 && item.athlete_distance <= 2000">Average</td>
+                    <td *ngIf="item.athlete_distance <= 1000">Below Average</td>
+                  </tr>
+                </ng-container>
+              </ng-container>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div *ngIf="!athleteDetails">
+        <h3>No Data Found</h3>
+    </div>
+  </div>
+</div>
+<!--
+@model SportsApplication.Data.Entity.AthleteDetailsModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h4>Detail of Yours</h4>
+<div>
+    @if (Model.athleteByTests.Count != 0)
+    {
+    <div class="row">
+        <div class="col"><b>Coach Name</b></div>
+        <div class="col"><b>Date</b></div>
+        <div class="col"><b>Test Type</b></div>
+        <div class="col"><b>Distance</b></div>
+        <div class="col"><b>Performance Ranking</b></div>
+    </div>
+    <hr/>
+        @foreach (var item in Model.athleteByTests)
+        {
+            @foreach (var item1 in Model.testLists)
+            {
+                @foreach (var item2 in Model.coach)
+                {
+                    @if (item.test_id == item1.id && item2.Id == item1.coachId)
+                    {
+                        <div class="row">
+                            <div class="col">
+                                @item2.UserName
+                            </div>
+                            <div class="col">
+                                @item1.date.ToString("dd/MM/yyyy")
+                            </div>
+                            <div class="col">
+                                @item1.test_type
+                            </div>
+                            <div class="col">
+                                @item.athlete_distance
+                            </div>
+                            @if (item.athlete_distance > 3500)
+                            {
+                                <div class="col">
+                                    Very Good
+                                </div>
+                            }
+                            else if (item.athlete_distance > 2000 && item.athlete_distance <= 3500)
+                            {
+                                <div class="col">
+                                    Good
+                                </div>
+                            }
+                            else if (item.athlete_distance > 1000 && item.athlete_distance <= 2000)
+                            {
+                                <div class="col">
+                                    Average
+                                </div>
+                            }
+                            else if (item.athlete_distance <= 1000)
+                            {
+                                <div class="col">
+                                    Below Average
+                                </div>
+                            }
+                        </div>
+                    }
+                }
+            }
+        }
+    }
+    else
+    {
+        <h5>No Data Found</h5>
+    }
+</div>
+ -->

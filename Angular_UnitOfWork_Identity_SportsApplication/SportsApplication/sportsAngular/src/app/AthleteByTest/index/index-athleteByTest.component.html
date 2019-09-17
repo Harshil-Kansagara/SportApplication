@@ -1,0 +1,47 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+  <div class="card-body">
+    <div class="text-center">
+      <div class="row" style="margin-top:30px">
+        <div class="col">Ranking</div>
+        <div class="col">Distance(meter)</div>
+        <div class="col">Fitness Rating</div>
+      </div>
+      <hr />
+      <ol>
+        <ng-container *ngFor="let item of athleteByTestDetails.athleteList">
+          <li>
+            <ng-container *ngFor="let item1 of athleteByTestDetails.allAthleteLists">
+             <div class="row" *ngIf="item.athlete_id == item1.id">
+                <div class="col">
+                  <button class="btn btn-link" (click)="onEdit(item.athlete_id)">{{item1.athlete_name}}</button>
+                </div>
+                <div class="col">{{item.athlete_distance}}</div>
+                <div class="col" *ngIf="item.athlete_distance > 3500">Very Good</div>
+                <div class="col" *ngIf="item.athlete_distance > 2000 && item.athlete_distance <= 3500">Good</div>
+                <div class="col" *ngIf="item.athlete_distance > 1000 && item.athlete_distance <= 2000">Average</div>
+                <div class="col" *ngIf="item.athlete_distance <= 1000">Below Average</div>
+              </div>
+            </ng-container>
+          </li>
+        </ng-container>
+      </ol>
+    </div>
+      <div class="row mt-4">
+        <div class="col">
+          <button class="btn btn-outline-primary mr-3"
+                  style="width:80px" (click)="onBack()">
+            <i class="fa fa-chevron-left"></i> Back
+          </button>
+          <button class="btn btn-primary" (click)="addAthlete()">
+            Add New Athlete to Test
+          </button>
+          <button style="margin-left:20px" class="btn btn-danger" (click)="deleteTest()">
+            Delete Test
+          </button>
+        </div>
+      </div>
+    </div>
+</div>

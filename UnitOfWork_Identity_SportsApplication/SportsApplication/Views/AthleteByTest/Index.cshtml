@@ -1,0 +1,76 @@
+﻿@model SportsApplication.Data.Entity.GetAthleteDataModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-center">
+    <h3>
+        @Model.test_type D. @Model.date.ToString("dd/MM/yyyy")
+    </h3>
+    <hr/>
+    <div class="row" style="margin-top:30px">
+        <div class="col"><b>Ranking</b></div>
+        <div class="col"><b>Distance(meter)</b></div>
+        <div class="col"><b>Fitness Rating</b></div>
+    </div>
+    <hr />
+    <ol>
+        @foreach (var item in Model.AthleteList)
+        {
+            <li>
+                <div class="row">
+                    @foreach (var item1 in Model.allAthleteLists)
+                    {
+                        @if (item.athlete_id == item1.id)
+                        {
+                            <div class="col">
+                                <a value="submit" asp-action="Edit" asp-route-athleteId="@item.athlete_id" asp-route-testId="@Model.TestId">@Html.DisplayFor(modelItem => item1.athlete_name)</a>
+                            </div>
+                        }
+                    }
+
+                    <div class="col">
+                        @Html.DisplayFor(modelItem => item.athlete_distance)
+                    </div>
+                    @if (item.athlete_distance > 3500)
+                    {
+                        <div class="col">
+                            Very Good
+                        </div>
+                    }
+                    else if (item.athlete_distance > 2000 && item.athlete_distance <= 3500)
+                    {
+                        <div class="col">
+                            Good
+                        </div>
+                    }
+                    else if (item.athlete_distance > 1000 && item.athlete_distance <= 2000)
+                    {
+                        <div class="col">
+                            Average
+                        </div>
+                    }
+                    else if (item.athlete_distance <= 1000)
+                    {
+                        <div class="col">
+                            Below Average
+                        </div>
+                    }
+
+                </div>
+                <hr />
+            </li>
+        }
+
+    </ol>
+    <div>
+        <a style="margin-top:10px" asp-action="Create" asp-route-id="@Model.TestId" value="submit" class="btn btn-primary">Add new athlete to test</a>
+    </div>
+    <div>
+        <a style="margin-top:10px" asp-controller="TestLists" asp-action="Delete" asp-route-id="@Model.TestId" value="submit" class="btn btn-primary">Delete Test</a>
+    </div>
+    <div>
+        <a asp-controller="TestLists" asp-action="Index">Back to Test List</a>
+    </div>
+</div>

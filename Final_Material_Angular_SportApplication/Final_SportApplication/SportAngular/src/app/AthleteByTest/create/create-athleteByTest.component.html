@@ -1,0 +1,34 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+  <div class="card-body">
+    <form #form="ngForm" autocomplete="off" (submit)="save()">
+      <div class="row" style="margin-left:20px;margin-top:10px">
+        <mat-form-field appearance="outline">
+          <mat-select placeholder="Select" name="athleteId" #AthleteName="ngModel" [(ngModel)]="athleteData.athleteId"
+                      [ngClass]="{'is-invalid': (AthleteName.touched || AthleteName.dirty) && !AthleteName.valid }" required>
+            <mat-option value="{{each.id}}" *ngFor="let each of addAthleteModel.athleteList">{{each.athleteName}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="AthleteName.errors?.required">Athlete Name is Required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row" style="margin-left:20px;margin-top:10px">
+        <mat-form-field appearance="outline">
+          <mat-label>Athlete Distance</mat-label>
+          <input matInput type="number" name="distance" [(ngModel)]="athleteData.distance" #Distance="ngModel" [ngClass]="{'is-invalid': (Distance.touched || Distance.dirty) && !Distance.valid }" required>
+          <mat-error *ngIf="Distance.errors?.required">Distance is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row" style="margin-left:20px;margin-top:10px">
+          <button mat-raised-button class="btn btn-outline-primary mr-3"
+                  style="width:80px" (click)="onBack()">
+            <i class="fa fa-chevron-left"></i> Back
+          </button>
+          <button mat-raised-button class="btn btn-primary" [disabled]="form.invalid">
+            Add
+          </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,121 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-12">
+        <form #form='ngForm' class="mb-4" autocomplete="off" (submit)="onSubmit(form)">
+          <div class="form-group">
+            <label class="control-label">Name</label>
+            <input class="form-control" #Name="ngModel" name="Name" [(ngModel)]="formModel.Name" [ngClass]="{'is-invalid': (Name.touched || Name.dirty) && !Name.valid }" required />
+            {{formModel.Name}}
+            <span class="invalid-feedback">
+              <span *ngIf="Name.errors?.required">
+                Name is required
+              </span>
+            </span>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Email</label>
+            <input class="form-control" type="text" email #Email="ngModel" name="Email" [(ngModel)]="formModel.Email" [ngClass]="{'is-invalid': (Email.touched || Email.dirty) && !Email.valid }" required />
+            <span class="invalid-feedback">
+              <span *ngIf="Email.errors?.required">
+                Email is required
+              </span>
+              <span *ngIf="Email.errors?.email">
+                Please provide valid email address.
+              </span>
+            </span>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Password</label>
+            <input type="password" class="form-control" #Password="ngModel" name="Password" [(ngModel)]="formModel.Password" [ngClass]="{'is-invalid': (Password.touched || Password.dirty) && !Password.valid }" required />
+            <span class="invalid-feedback">
+              <span *ngIf="Password.errors?.required">
+                Password is required
+              </span>
+            </span>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Confirm Password</label>
+            <input type="password" class="form-control" #ConfirmPassword="ngModel" appConfirmEqualValidator="Password" name="ConfirmPassword" [(ngModel)]="formModel.ConfirmPassword" [ngClass]="{'is-invalid': (ConfirmPassword.touched || ConfirmPassword.dirty) && !ConfirmPassword.valid }" required />
+            <span class="invalid-feedback">
+              <span *ngIf="ConfirmPassword.errors?.required">
+                Confirm Password is required
+              </span>
+              <span *ngIf="ConfirmPassword.errors?.notEqual">
+                Confirm Password does not match
+              </span>
+            </span>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Role Name</label>
+              <select class="custom-select form-control" name="RoleId" #RoleId="ngModel" [(ngModel)]="formModel.RoleId" [ngClass]="{'is-invalid': (RoleId.touched || RoleId.dirty) && !RoleId.valid }" required>
+                <option value="{{each.id}}" *ngFor="let each of roleId">{{each.name}}</option>
+              </select>
+              <span class="invalid-feedback">
+                <span *ngIf="RoleId.errors?.required">
+                  Role Name is required
+                </span>
+              </span>
+          </div>
+          <div style="margin-top:20px">
+            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Register</button>
+            <a style="margin-left:20px" value="submit" [routerLink]="['/login']">Already have account?</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--@model SportsApplication.Data.Entity.RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>User Registration</h1>
+<div class="row">
+  <div class="col-md-12">
+    <form method="post">
+      <div asp-validation-summary="All" class="text-danger"></div>
+      <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <label asp-for="ConfirmPassword"></label>
+        <input asp-for="ConfirmPassword" class="form-control" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Role Name:</label>
+        <select asp-for="RoleId">
+          <option value="-1" selected disabled>--select--</option>
+          @foreach (var role in Model.roleViewList)
+          {
+          <option value="@role.Id">@role.Name</option>
+          }
+        </select>
+        <span asp-validation-for="RoleId" class="text-danger"></span>
+      </div>
+      <button type="submit" class="btn btn-primary">Register</button>
+      <a value="submit" asp-action="Login">Already have account?</a>
+    </form>
+  </div>
+</div>-->
+
+
